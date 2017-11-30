@@ -20,6 +20,7 @@
 		8AD581561FD048A400BE9372 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581551FD048A400BE9372 /* UIColor+Hex.swift */; };
 		8AD581581FD04B4200BE9372 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581571FD04B4200BE9372 /* GraphViewController.swift */; };
 		8AD5815A1FD051C300BE9372 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581591FD051C300BE9372 /* PointViewController.swift */; };
+		8AD5815C1FD0572800BE9372 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8AD5815B1FD0572800BE9372 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		8AD581551FD048A400BE9372 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		8AD581571FD04B4200BE9372 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		8AD581591FD051C300BE9372 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
+		8AD5815B1FD0572800BE9372 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		8AD581231FD0368900BE9372 = {
 			isa = PBXGroup;
 			children = (
+				8AD5815B1FD0572800BE9372 /* .gitignore */,
 				8AD581491FD03D0300BE9372 /* Source */,
 				8AD581521FD03D9C00BE9372 /* Resources */,
 				8AD5812D1FD0368900BE9372 /* Products */,
@@ -187,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD5815C1FD0572800BE9372 /* .gitignore in Resources */,
 				8AD5813A1FD0368900BE9372 /* LaunchScreen.storyboard in Resources */,
 				8AD581371FD0368900BE9372 /* Assets.xcassets in Resources */,
 				8AD581351FD0368900BE9372 /* Main.storyboard in Resources */,
