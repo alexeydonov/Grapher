@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		8AD581301FD0368900BE9372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD5812F1FD0368900BE9372 /* AppDelegate.swift */; };
-		8AD581321FD0368900BE9372 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581311FD0368900BE9372 /* ViewController.swift */; };
 		8AD581351FD0368900BE9372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581331FD0368900BE9372 /* Main.storyboard */; };
 		8AD581371FD0368900BE9372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581361FD0368900BE9372 /* Assets.xcassets */; };
 		8AD5813A1FD0368900BE9372 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581381FD0368900BE9372 /* LaunchScreen.storyboard */; };
+		8AD581421FD0372B00BE9372 /* GraphTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581411FD0372B00BE9372 /* GraphTableViewController.swift */; };
+		8AD581461FD037E500BE9372 /* GraphTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581451FD037E500BE9372 /* GraphTableViewCell.swift */; };
+		8AD581481FD0395C00BE9372 /* PointTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581471FD0395C00BE9372 /* PointTableViewController.swift */; };
+		8AD5814E1FD03D4300BE9372 /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD5814D1FD03D4300BE9372 /* Graph.swift */; };
+		8AD581501FD03D5B00BE9372 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD5814F1FD03D5B00BE9372 /* Point.swift */; };
+		8AD581541FD0471700BE9372 /* ValueGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581531FD0471700BE9372 /* ValueGraphView.swift */; };
+		8AD581561FD048A400BE9372 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581551FD048A400BE9372 /* UIColor+Hex.swift */; };
+		8AD581581FD04B4200BE9372 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581571FD04B4200BE9372 /* GraphViewController.swift */; };
+		8AD5815A1FD051C300BE9372 /* PointViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD581591FD051C300BE9372 /* PointViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8AD5812C1FD0368900BE9372 /* Grapher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grapher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD5812F1FD0368900BE9372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8AD581311FD0368900BE9372 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8AD581341FD0368900BE9372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8AD581361FD0368900BE9372 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8AD581391FD0368900BE9372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8AD5813B1FD0368900BE9372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AD581411FD0372B00BE9372 /* GraphTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTableViewController.swift; sourceTree = "<group>"; };
+		8AD581451FD037E500BE9372 /* GraphTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTableViewCell.swift; sourceTree = "<group>"; };
+		8AD581471FD0395C00BE9372 /* PointTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointTableViewController.swift; sourceTree = "<group>"; };
+		8AD5814D1FD03D4300BE9372 /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
+		8AD5814F1FD03D5B00BE9372 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		8AD581531FD0471700BE9372 /* ValueGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueGraphView.swift; sourceTree = "<group>"; };
+		8AD581551FD048A400BE9372 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		8AD581571FD04B4200BE9372 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		8AD581591FD051C300BE9372 /* PointViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +54,8 @@
 		8AD581231FD0368900BE9372 = {
 			isa = PBXGroup;
 			children = (
-				8AD5812E1FD0368900BE9372 /* Grapher */,
+				8AD581491FD03D0300BE9372 /* Source */,
+				8AD581521FD03D9C00BE9372 /* Resources */,
 				8AD5812D1FD0368900BE9372 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,17 +68,64 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8AD5812E1FD0368900BE9372 /* Grapher */ = {
+		8AD581491FD03D0300BE9372 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				8AD5814A1FD03D1200BE9372 /* Entity */,
+				8AD5814B1FD03D1B00BE9372 /* Graph Table */,
+				8AD5814C1FD03D2D00BE9372 /* Point Table */,
+				8AD581511FD03D8600BE9372 /* Utilities */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		8AD5814A1FD03D1200BE9372 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				8AD5814D1FD03D4300BE9372 /* Graph.swift */,
+				8AD5814F1FD03D5B00BE9372 /* Point.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		8AD5814B1FD03D1B00BE9372 /* Graph Table */ = {
+			isa = PBXGroup;
+			children = (
+				8AD581411FD0372B00BE9372 /* GraphTableViewController.swift */,
+				8AD581451FD037E500BE9372 /* GraphTableViewCell.swift */,
+				8AD581531FD0471700BE9372 /* ValueGraphView.swift */,
+				8AD581571FD04B4200BE9372 /* GraphViewController.swift */,
+			);
+			path = "Graph Table";
+			sourceTree = "<group>";
+		};
+		8AD5814C1FD03D2D00BE9372 /* Point Table */ = {
+			isa = PBXGroup;
+			children = (
+				8AD581471FD0395C00BE9372 /* PointTableViewController.swift */,
+				8AD581591FD051C300BE9372 /* PointViewController.swift */,
+			);
+			path = "Point Table";
+			sourceTree = "<group>";
+		};
+		8AD581511FD03D8600BE9372 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				8AD5812F1FD0368900BE9372 /* AppDelegate.swift */,
-				8AD581311FD0368900BE9372 /* ViewController.swift */,
+				8AD581551FD048A400BE9372 /* UIColor+Hex.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8AD581521FD03D9C00BE9372 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				8AD581331FD0368900BE9372 /* Main.storyboard */,
-				8AD581361FD0368900BE9372 /* Assets.xcassets */,
 				8AD581381FD0368900BE9372 /* LaunchScreen.storyboard */,
 				8AD5813B1FD0368900BE9372 /* Info.plist */,
+				8AD581361FD0368900BE9372 /* Assets.xcassets */,
 			);
-			path = Grapher;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,8 +200,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AD581321FD0368900BE9372 /* ViewController.swift in Sources */,
+				8AD581581FD04B4200BE9372 /* GraphViewController.swift in Sources */,
+				8AD581541FD0471700BE9372 /* ValueGraphView.swift in Sources */,
+				8AD581561FD048A400BE9372 /* UIColor+Hex.swift in Sources */,
+				8AD5814E1FD03D4300BE9372 /* Graph.swift in Sources */,
+				8AD581461FD037E500BE9372 /* GraphTableViewCell.swift in Sources */,
+				8AD5815A1FD051C300BE9372 /* PointViewController.swift in Sources */,
+				8AD581421FD0372B00BE9372 /* GraphTableViewController.swift in Sources */,
+				8AD581501FD03D5B00BE9372 /* Point.swift in Sources */,
 				8AD581301FD0368900BE9372 /* AppDelegate.swift in Sources */,
+				8AD581481FD0395C00BE9372 /* PointTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,10 +348,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JU3E5H79L6;
-				INFOPLIST_FILE = Grapher/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-Onone";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexeydonov.Grapher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -291,8 +365,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JU3E5H79L6;
-				INFOPLIST_FILE = Grapher/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexeydonov.Grapher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
