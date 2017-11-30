@@ -20,17 +20,18 @@ class PointViewController: UIViewController {
     // MARK: Implementation
     
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak var valueTextField: UITextField! {
+        didSet {
+            valueTextField.delegate = self
+        }
+    }
     
-    private lazy var dateFormatter: DateFormatter = {
-        return DateFormatter()
-    }()
-    
-    private lazy var valueFormatter: NumberFormatter = {
-        return NumberFormatter()
-    }()
-
-    @IBAction private func save(_ sender: UIBarButtonItem) {
+    @IBAction private func save() {
+        guard let text = valueTextField.text, Meta.instance.valueFormatter.number(from: text) != nil else {
+            valueTextField.becomeFirstResponder()
+            return
+        }
+        
         delegate?.pointViewControllerDidRequestSave(self)
     }
     
@@ -40,13 +41,30 @@ class PointViewController: UIViewController {
         super.viewDidLoad()
 
         if let point = point {
-            title = dateFormatter.string(from: point.date)
+            title = Meta.instance.dateFormatter.string(from: point.date)
             datePicker.date = point.date
-            valueTextField.text = valueFormatter.string(from: NSNumber(value: point.value))
+            valueTextField.text = Meta.instance.valueFormatter.string(from: NSNumber(value: point.value))
         }
         else {
             title = "New Point"
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        valueTextField.becomeFirstResponder()
+    }
 
 }
+
+extension PointViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        save()
+        return false
+    }
+}
+
+
+
+

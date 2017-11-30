@@ -19,7 +19,11 @@ class GraphViewController: UIViewController {
     
     // MARK: Implementation
     
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: UITextField! {
+        didSet {
+            nameTextField.delegate = self
+        }
+    }
     @IBOutlet private weak var colorView: UIView!
     @IBOutlet weak var colorSlider: UISlider!
     
@@ -27,7 +31,12 @@ class GraphViewController: UIViewController {
         colorView.backgroundColor = UIColor(hue: CGFloat(sender.value), saturation: 1.0, brightness: 0.5, alpha: 1)
     }
     
-    @IBAction private func save(_ sender: UIBarButtonItem) {
+    @IBAction private func save() {
+        guard let text = nameTextField.text, !text.isEmpty else {
+            nameTextField.becomeFirstResponder()
+            return
+        }
+        
         delegate?.graphViewControllerDidRequestSave(self)
     }
     
@@ -46,4 +55,21 @@ class GraphViewController: UIViewController {
             colorView.backgroundColor = UIColor(hue: 0.5, saturation: 1, brightness: 0.5, alpha: 1.0)
         }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        nameTextField.becomeFirstResponder()
+    }
 }
+
+extension GraphViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        save()
+        
+        return false
+    }
+}
+
+
+

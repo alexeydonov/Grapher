@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A12C0F31FD07F4300BE51DF /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0F21FD07F4300BE51DF /* Meta.swift */; };
 		8AD581301FD0368900BE9372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD5812F1FD0368900BE9372 /* AppDelegate.swift */; };
 		8AD581351FD0368900BE9372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581331FD0368900BE9372 /* Main.storyboard */; };
 		8AD581371FD0368900BE9372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581361FD0368900BE9372 /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8A12C0F21FD07F4300BE51DF /* Meta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
 		8AD5812C1FD0368900BE9372 /* Grapher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grapher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD5812F1FD0368900BE9372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AD581341FD0368900BE9372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				8AD5812F1FD0368900BE9372 /* AppDelegate.swift */,
 				8AD581551FD048A400BE9372 /* UIColor+Hex.swift */,
+				8A12C0F21FD07F4300BE51DF /* Meta.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				8AD581541FD0471700BE9372 /* ValueGraphView.swift in Sources */,
 				8AD581561FD048A400BE9372 /* UIColor+Hex.swift in Sources */,
 				8AD5814E1FD03D4300BE9372 /* Graph.swift in Sources */,
+				8A12C0F31FD07F4300BE51DF /* Meta.swift in Sources */,
 				8AD581461FD037E500BE9372 /* GraphTableViewCell.swift in Sources */,
 				8AD5815A1FD051C300BE9372 /* PointViewController.swift in Sources */,
 				8AD581421FD0372B00BE9372 /* GraphTableViewController.swift in Sources */,

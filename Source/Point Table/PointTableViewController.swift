@@ -31,14 +31,6 @@ class PointTableViewController: UITableViewController {
         static let editPointSegueIdentifier = "Edit Point"
     }
     
-    private lazy var dateFormatter: DateFormatter = {
-        return DateFormatter()
-    }()
-    
-    private lazy var valueFormatter: NumberFormatter = {
-        return NumberFormatter()
-    }()
-    
     private var points: [Point] = [] {
         didSet {
             tableView?.reloadData()
@@ -78,8 +70,8 @@ class PointTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let point = points[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: UI.pointCellIdentifier, for: indexPath)
-        cell.textLabel?.text = dateFormatter.string(from: point.date)
-        cell.detailTextLabel?.text = valueFormatter.string(from: NSNumber(value: point.value))
+        cell.textLabel?.text = Meta.instance.dateFormatter.string(from: point.date)
+        cell.detailTextLabel?.text = Meta.instance.valueFormatter.string(from: NSNumber(value: point.value))
         
         return cell
     }
@@ -91,9 +83,10 @@ extension PointTableViewController: PointViewControllerDelegate {
             
         }
         else {
-            guard let valueText = controller.valueTextField.text, let value = valueFormatter.number(from: valueText)?.doubleValue else { return }
+            guard let valueText = controller.valueTextField.text, let value = Meta.instance.valueFormatter.number(from: valueText)?.doubleValue else { return }
             let newPoint = Point(date: controller.datePicker.date, value: value)
             graph?.points.append(newPoint)
+            navigationController?.popViewController(animated: true)
             delegate?.pointTableViewControllerUpdatedGraph(self)
         }
     }

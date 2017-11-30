@@ -39,14 +39,20 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BXC-LR-Vof" customClass="ValueGraphView" customModule="Grapher" customModuleProvider="target">
+                                        <view opaque="NO" clipsSubviews="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="BXC-LR-Vof" customClass="ValueGraphView" customModule="Grapher" customModuleProvider="target">
                                             <rect key="frame" x="20" y="46.5" width="301" height="50"/>
-                                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="M22-GQ-aOI"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="graphColor">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="UYQ-II-XmC" firstAttribute="leading" secondItem="f35-ke-Eub" secondAttribute="leading" constant="20" symbolic="YES" id="2wa-Mz-Ozo"/>
                                         <constraint firstAttribute="bottom" secondItem="BXC-LR-Vof" secondAttribute="bottom" constant="20" symbolic="YES" id="3h2-YC-qHs"/>
@@ -59,14 +65,12 @@
                                         <constraint firstAttribute="trailing" secondItem="BXC-LR-Vof" secondAttribute="trailing" constant="20" symbolic="YES" id="ntk-o6-Irs"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="graphView" destination="BXC-LR-Vof" id="0fa-DW-hdo"/>
                                     <outlet property="nameLabel" destination="UYQ-II-XmC" id="wm2-cc-v2I"/>
                                     <outlet property="valueLabel" destination="oIT-eN-qEs" id="gMm-dW-mXx"/>
-                                    <segue destination="cB1-cL-pva" kind="show" identifier="Show Details" id="3xS-gZ-z6z">
-                                        <segue key="commit" inheritsFrom="parent" id="4Sd-59-rKE"/>
-                                        <segue key="preview" inheritsFrom="commit" id="YI4-Ic-dtZ"/>
-                                    </segue>
+                                    <segue destination="cB1-cL-pva" kind="show" identifier="Show Details" id="3xS-gZ-z6z"/>
                                     <segue destination="eMj-mO-SZb" kind="show" identifier="Edit Graph" trigger="accessoryAction" id="FwM-21-MyL">
                                         <segue key="commit" inheritsFrom="parent" id="lss-dE-r5U"/>
                                         <segue key="preview" inheritsFrom="commit" id="JMW-9l-jwS"/>
@@ -80,7 +84,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Graphs" id="IVU-73-LGV">
-                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="QCR-mh-nQy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QCR-mh-nQy">
                             <connections>
                                 <segue destination="eMj-mO-SZb" kind="show" identifier="Add Graph" id="E5j-Vu-e6Q"/>
                             </connections>
@@ -195,7 +199,7 @@
                     <navigationItem key="navigationItem" id="EFy-DX-6cD">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="0Ve-er-mdV">
                             <connections>
-                                <action selector="save:" destination="eMj-mO-SZb" id="DFO-aD-PcD"/>
+                                <action selector="save" destination="eMj-mO-SZb" id="c78-Gu-JrM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -218,52 +222,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-KN-Rc7">
-                                <rect key="frame" x="0.0" y="93" width="375" height="216"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="gr3-KN-Rc7">
+                                <rect key="frame" x="20" y="84" width="335" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="533742359.03319198">
                                     <!--2017-11-30 13:45:59 +0000-->
                                 </date>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhf-Ru-xmY">
-                                <rect key="frame" x="0.0" y="317" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oqf-9H-U32">
-                                <rect key="frame" x="0.0" y="346" width="375" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oqf-9H-U32">
+                                <rect key="frame" x="20" y="308" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CK0-ik-xeI">
-                                <rect key="frame" x="0.0" y="64" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gr3-KN-Rc7" firstAttribute="leading" secondItem="EnE-lq-IoT" secondAttribute="leading" id="EWu-79-QaN"/>
-                            <constraint firstItem="CK0-ik-xeI" firstAttribute="leading" secondItem="EnE-lq-IoT" secondAttribute="leading" id="Eck-WT-Lci"/>
-                            <constraint firstItem="EnE-lq-IoT" firstAttribute="trailing" secondItem="Oqf-9H-U32" secondAttribute="trailing" id="Jds-Ky-7BG"/>
-                            <constraint firstItem="EnE-lq-IoT" firstAttribute="trailing" secondItem="gr3-KN-Rc7" secondAttribute="trailing" id="PWp-mH-iEn"/>
-                            <constraint firstItem="Xhf-Ru-xmY" firstAttribute="top" secondItem="gr3-KN-Rc7" secondAttribute="bottom" constant="8" symbolic="YES" id="XTs-jx-qeT"/>
-                            <constraint firstItem="EnE-lq-IoT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CK0-ik-xeI" secondAttribute="trailing" id="a6G-8I-YLO"/>
-                            <constraint firstItem="Xhf-Ru-xmY" firstAttribute="leading" secondItem="EnE-lq-IoT" secondAttribute="leading" id="bWc-np-56r"/>
-                            <constraint firstItem="Oqf-9H-U32" firstAttribute="top" secondItem="Xhf-Ru-xmY" secondAttribute="bottom" constant="8" symbolic="YES" id="cdr-kU-HJX"/>
-                            <constraint firstItem="Oqf-9H-U32" firstAttribute="leading" secondItem="EnE-lq-IoT" secondAttribute="leading" id="goe-ff-QuM"/>
-                            <constraint firstItem="EnE-lq-IoT" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Xhf-Ru-xmY" secondAttribute="trailing" id="jMt-f8-dKC"/>
-                            <constraint firstItem="CK0-ik-xeI" firstAttribute="top" secondItem="EnE-lq-IoT" secondAttribute="top" id="k7F-BJ-8gS"/>
-                            <constraint firstItem="gr3-KN-Rc7" firstAttribute="top" secondItem="CK0-ik-xeI" secondAttribute="bottom" constant="8" symbolic="YES" id="tIj-NA-3E6"/>
+                            <constraint firstItem="gr3-KN-Rc7" firstAttribute="leading" secondItem="EnE-lq-IoT" secondAttribute="leading" constant="20" id="EWu-79-QaN"/>
+                            <constraint firstItem="EnE-lq-IoT" firstAttribute="trailing" secondItem="Oqf-9H-U32" secondAttribute="trailing" constant="20" id="Jds-Ky-7BG"/>
+                            <constraint firstItem="gr3-KN-Rc7" firstAttribute="top" secondItem="EnE-lq-IoT" secondAttribute="top" constant="20" id="K9n-v5-MtL"/>
+                            <constraint firstItem="EnE-lq-IoT" firstAttribute="trailing" secondItem="gr3-KN-Rc7" secondAttribute="trailing" constant="20" id="PWp-mH-iEn"/>
+                            <constraint firstItem="Oqf-9H-U32" firstAttribute="top" secondItem="gr3-KN-Rc7" secondAttribute="bottom" constant="8" symbolic="YES" id="YqX-cg-UYO"/>
+                            <constraint firstItem="Oqf-9H-U32" firstAttribute="leading" secondItem="EnE-lq-IoT" secondAttribute="leading" constant="20" id="goe-ff-QuM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EnE-lq-IoT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="xcI-Rv-QIc">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="FPd-XM-LvX">
                             <connections>
-                                <action selector="save:" destination="lIQ-4a-fvw" id="H0g-QG-ygv"/>
+                                <action selector="save" destination="lIQ-4a-fvw" id="eeI-td-ism"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -296,6 +282,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="Kwq-Zt-IEx"/>
         <segue reference="FwM-21-MyL"/>
-        <segue reference="3xS-gZ-z6z"/>
     </inferredMetricsTieBreakers>
 </document>

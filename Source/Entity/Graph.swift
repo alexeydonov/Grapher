@@ -12,4 +12,5 @@ struct Graph {
     var name: String
     var color: Float
     var points: [Point]
+    var threshold: Int?
 }
