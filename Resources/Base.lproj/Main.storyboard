@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="664.79999999999995" y="125.4872563718141"/>
         </scene>
-        <!--Point Table View Controller-->
+        <!--Points-->
         <scene sceneID="gzr-fY-zlK">
             <objects>
-                <tableViewController id="cB1-cL-pva" customClass="PointTableViewController" customModule="Grapher" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Points" id="cB1-cL-pva" customClass="PointTableViewController" customModule="Grapher" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bZ6-II-sx2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,19 +147,19 @@
                     <navigationItem key="navigationItem" id="tg7-5U-nC9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="SCY-3p-0kR">
                             <connections>
-                                <segue destination="lIQ-4a-fvw" kind="show" identifier="Add Point" id="ean-SV-y33"/>
+                                <segue destination="yQt-4P-M3K" kind="presentation" identifier="Add Point" id="avf-kG-F5o"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQi-mT-KHq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="125"/>
+            <point key="canvasLocation" x="2553" y="125"/>
         </scene>
-        <!--Graph View Controller-->
+        <!--Graph-->
         <scene sceneID="HwF-TA-oCP">
             <objects>
-                <viewController id="eMj-mO-SZb" customClass="GraphViewController" customModule="Grapher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Graph" id="eMj-mO-SZb" customClass="GraphViewController" customModule="Grapher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xa3-ky-7Cy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -224,7 +224,7 @@
                     <navigationItem key="navigationItem" id="EFy-DX-6cD">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9Dc-vX-MB7">
                             <connections>
-                                <segue destination="KwX-PK-le1" kind="unwind" unwindAction="unwindWithSegue:" id="Okc-wn-vmC"/>
+                                <segue destination="KwX-PK-le1" kind="unwind" identifier="Cancel Add Graph" unwindAction="unwindWithSegue:" id="Okc-wn-vmC"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="0Ve-er-mdV">
@@ -263,10 +263,26 @@
             </objects>
             <point key="canvasLocation" x="665" y="896"/>
         </scene>
-        <!--Title-->
+        <!--Navigation Controller-->
+        <scene sceneID="wpD-4I-whv">
+            <objects>
+                <navigationController id="yQt-4P-M3K" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SI3-rP-UTo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lIQ-4a-fvw" kind="relationship" relationship="rootViewController" id="cRS-0i-3H7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r5M-fd-rU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2553" y="896"/>
+        </scene>
+        <!--Point-->
         <scene sceneID="smx-44-BO3">
             <objects>
-                <viewController id="lIQ-4a-fvw" customClass="PointViewController" customModule="Grapher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Point" id="lIQ-4a-fvw" customClass="PointViewController" customModule="Grapher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MGF-aW-PzY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,7 +311,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EnE-lq-IoT"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="xcI-Rv-QIc">
+                    <navigationItem key="navigationItem" id="xcI-Rv-QIc">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="yRa-TB-7lp">
+                            <connections>
+                                <segue destination="jHX-9I-TOb" kind="unwind" identifier="Cancel Add Point" unwindAction="unwindWithSegue:" id="FWc-so-zlo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="FPd-XM-LvX">
                             <connections>
                                 <action selector="save" destination="lIQ-4a-fvw" id="eeI-td-ism"/>
@@ -308,8 +329,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjs-Gh-66f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="jHX-9I-TOb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2562" y="125"/>
+            <point key="canvasLocation" x="3519" y="896"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sLW-l5-WtN">

@@ -33,6 +33,10 @@ class PointTableViewController: UITableViewController {
     
     private var points: [Point] = []
     
+    @IBAction private func unwind(segue: UIStoryboardSegue) {
+        
+    }
+    
     // MARK: UIViewController
     
     override func viewDidLoad() {

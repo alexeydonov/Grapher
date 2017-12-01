@@ -42,6 +42,8 @@ class PointViewController: UIViewController {
 
         if let point = point {
             title = Meta.instance.dateFormatter.string(from: point.date)
+            navigationItem.leftBarButtonItem = nil
+            
             datePicker.date = point.date
             valueTextField.text = Meta.instance.valueFormatter.string(from: NSNumber(value: point.value))
         }
