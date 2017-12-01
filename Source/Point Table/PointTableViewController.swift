@@ -31,11 +31,7 @@ class PointTableViewController: UITableViewController {
         static let editPointSegueIdentifier = "Edit Point"
     }
     
-    private var points: [Point] = [] {
-        didSet {
-            tableView?.reloadData()
-        }
-    }
+    private var points: [Point] = []
     
     // MARK: UIViewController
     
@@ -77,17 +73,39 @@ class PointTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let date = points[indexPath.row].date
+            if let index = graph?.points.index(where: { $0.date == date }) {
+                UIView.setAnimationsEnabled(false)
+                let contentOffset = tableView.contentOffset
+                tableView.beginUpdates()
+                graph?.points.remove(at: index)
+                delegate?.pointTableViewControllerUpdatedGraph(self)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                tableView.endUpdates()
+                tableView.contentOffset = contentOffset
+                UIView.setAnimationsEnabled(true)
+            }
+        }
+    }
 }
 
 extension PointTableViewController: PointViewControllerDelegate {
     func pointViewControllerDidRequestSave(_ controller: PointViewController) {
         if let _ = controller.point {
-            
+            // TODO: Modify point
         }
         else {
             guard let valueText = controller.valueTextField.text, let value = Meta.instance.valueFormatter.number(from: valueText)?.doubleValue else { return }
             let newPoint = Point(date: controller.datePicker.date, value: value)
             graph?.points.append(newPoint)
+            tableView.reloadData()
             navigationController?.popViewController(animated: true)
             delegate?.pointTableViewControllerUpdatedGraph(self)
         }

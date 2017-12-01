@@ -19,11 +19,7 @@ class GraphTableViewController: UITableViewController {
             Point(date: Meta.instance.dateFormatter.date(from: "Oct 10, 2017")!, value: 0),
             Point(date: Meta.instance.dateFormatter.date(from: "Oct 11, 2017")!, value: 5),
             Point(date: Meta.instance.dateFormatter.date(from: "Oct 12, 2017")!, value: 40)], threshold: nil)
-        ] {
-        didSet {
-            tableView?.reloadData()
-        }
-    }
+        ]
     
     // MARK: Implementation
     
@@ -83,7 +79,7 @@ class GraphTableViewController: UITableViewController {
         }
     }
     
-    // UITableViewDataSource
+    // MARK: UITableViewDataSource
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return graphs.count
@@ -104,17 +100,38 @@ class GraphTableViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            UIView.setAnimationsEnabled(false)
+            let contentOffset = tableView.contentOffset
+            tableView.beginUpdates()
+            graphs.remove(at: indexPath.row)
+            saveGraphs()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            tableView.contentOffset = contentOffset
+            UIView.setAnimationsEnabled(true)
+        }
+    }
 }
 
 extension GraphTableViewController: GraphViewControllerDelegate {
     func graphViewControllerDidRequestSave(_ controller: GraphViewController) {
         if let _ = controller.graph {
-            // TODO: Update color/name
+            // TODO: Modify graph
         }
         else {
             let newGraph = Graph(name: controller.nameTextField.text ?? "", color: controller.colorSlider.value, points: [], threshold: nil)
             graphs.append(newGraph)
             saveGraphs()
+            tableView.reloadData()
             navigationController?.popViewController(animated: true)
         }
     }
@@ -126,6 +143,7 @@ extension GraphTableViewController: PointTableViewControllerDelegate {
             if let index = graphs.index(where: { $0.name == graph.name }) {
                 graphs[index].points = graph.points
                 saveGraphs()
+                tableView.reloadData()
             }
         }
     }

@@ -20,6 +20,9 @@ class ValueGraphView: UIView {
     @IBInspectable
     var graphColor: UIColor = .black
     
+    @IBInspectable
+    var showTicks: Bool = true
+    
     private struct UI {
         static let tickRadius = CGFloat(2.0)
     }
@@ -54,8 +57,10 @@ class ValueGraphView: UIView {
         graphColor.setStroke()
         path.stroke()
         
-        graphColor.setFill()
-        ticks.forEach { $0.fill() }
+        if showTicks {
+            graphColor.setFill()
+            ticks.forEach { $0.fill() }
+        }
         
         UIColor.lightGray.setStroke()
         let roundRect = UIBezierPath(roundedRect: bounds, cornerRadius: UI.tickRadius * 2)

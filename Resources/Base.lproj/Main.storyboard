@@ -106,11 +106,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Point Cell" textLabel="oRX-Lo-B2q" detailTextLabel="QsD-9j-XHT" style="IBUITableViewCellStyleValue1" id="gkf-Pl-I3P">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Point Cell" textLabel="oRX-Lo-B2q" detailTextLabel="QsD-9j-XHT" style="IBUITableViewCellStyleValue1" id="gkf-Pl-I3P">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gkf-Pl-I3P" id="YWn-Bv-vVr">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="oRX-Lo-B2q">
@@ -121,7 +121,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" id="QsD-9j-XHT">
-                                            <rect key="frame" x="319.5" y="14" width="39.5" height="18"/>
+                                            <rect key="frame" x="300.5" y="14" width="39.5" height="18"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="textColor"/>
@@ -189,7 +189,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="EFy-DX-6cD">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="0Ve-er-mdV">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="0Ve-er-mdV">
                             <connections>
                                 <action selector="save" destination="eMj-mO-SZb" id="c78-Gu-JrM"/>
                             </connections>
@@ -238,7 +238,7 @@
                         <viewLayoutGuide key="safeArea" id="EnE-lq-IoT"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="xcI-Rv-QIc">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FPd-XM-LvX">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="FPd-XM-LvX">
                             <connections>
                                 <action selector="save" destination="lIQ-4a-fvw" id="eeI-td-ism"/>
                             </connections>

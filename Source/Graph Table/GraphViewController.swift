@@ -17,8 +17,6 @@ class GraphViewController: UIViewController {
     
     var graph: Graph?
     
-    // MARK: Implementation
-    
     @IBOutlet weak var nameTextField: UITextField! {
         didSet {
             nameTextField.delegate = self
@@ -26,7 +24,9 @@ class GraphViewController: UIViewController {
     }
     @IBOutlet weak var colorSlider: UISlider!
     
-    @IBAction func colorChanged(_ sender: UISlider) {
+    // MARK: Implementation
+    
+    @IBAction private func colorChanged(_ sender: UISlider) {
         let color = UIColor(hue: CGFloat(sender.value), saturation: 1.0, brightness: 0.5, alpha: 1)
         sender.minimumTrackTintColor = color
         sender.maximumTrackTintColor = color
@@ -62,7 +62,6 @@ class GraphViewController: UIViewController {
             let color = UIColor(hue: 0.5, saturation: 1, brightness: 0.5, alpha: 1.0)
             colorSlider.minimumTrackTintColor = color
             colorSlider.maximumTrackTintColor = color
-            //colorView.backgroundColor = UIColor(hue: 0.5, saturation: 1, brightness: 0.5, alpha: 1.0)
         }
     }
     
