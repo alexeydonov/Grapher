@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -28,19 +30,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYQ-II-XmC">
-                                            <rect key="frame" x="20" y="20" width="43.5" height="19"/>
+                                            <rect key="frame" x="16" y="11" width="43.5" height="37.5"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIT-eN-qEs">
-                                            <rect key="frame" x="283.5" y="20" width="37.5" height="18"/>
+                                            <rect key="frame" x="295.5" y="12.5" width="37.5" height="18"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view opaque="NO" clipsSubviews="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="BXC-LR-Vof" customClass="ValueGraphView" customModule="Grapher" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="46.5" width="301" height="50"/>
+                                            <rect key="frame" x="16" y="56" width="317" height="50"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="M22-GQ-aOI"/>
@@ -54,15 +56,15 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="UYQ-II-XmC" firstAttribute="leading" secondItem="f35-ke-Eub" secondAttribute="leading" constant="20" symbolic="YES" id="2wa-Mz-Ozo"/>
-                                        <constraint firstAttribute="bottom" secondItem="BXC-LR-Vof" secondAttribute="bottom" constant="20" symbolic="YES" id="3h2-YC-qHs"/>
-                                        <constraint firstItem="UYQ-II-XmC" firstAttribute="top" secondItem="f35-ke-Eub" secondAttribute="top" constant="20" symbolic="YES" id="LNL-gp-H2q"/>
-                                        <constraint firstItem="BXC-LR-Vof" firstAttribute="leading" secondItem="f35-ke-Eub" secondAttribute="leading" constant="20" symbolic="YES" id="Q2N-uX-zIi"/>
+                                        <constraint firstItem="UYQ-II-XmC" firstAttribute="leading" secondItem="f35-ke-Eub" secondAttribute="leadingMargin" id="2wa-Mz-Ozo"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="BXC-LR-Vof" secondAttribute="bottom" id="3h2-YC-qHs"/>
+                                        <constraint firstItem="UYQ-II-XmC" firstAttribute="top" secondItem="f35-ke-Eub" secondAttribute="topMargin" id="LNL-gp-H2q"/>
+                                        <constraint firstItem="BXC-LR-Vof" firstAttribute="leading" secondItem="f35-ke-Eub" secondAttribute="leadingMargin" id="Q2N-uX-zIi"/>
                                         <constraint firstItem="BXC-LR-Vof" firstAttribute="top" secondItem="UYQ-II-XmC" secondAttribute="bottom" constant="8" symbolic="YES" id="Qvv-pA-vdH"/>
-                                        <constraint firstItem="oIT-eN-qEs" firstAttribute="baseline" secondItem="UYQ-II-XmC" secondAttribute="baseline" id="aCb-gt-fD0"/>
-                                        <constraint firstAttribute="trailing" secondItem="oIT-eN-qEs" secondAttribute="trailing" constant="20" symbolic="YES" id="d0s-4l-W7g"/>
+                                        <constraint firstItem="oIT-eN-qEs" firstAttribute="firstBaseline" secondItem="UYQ-II-XmC" secondAttribute="firstBaseline" id="aCb-gt-fD0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="oIT-eN-qEs" secondAttribute="trailing" id="d0s-4l-W7g"/>
                                         <constraint firstItem="oIT-eN-qEs" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UYQ-II-XmC" secondAttribute="trailing" constant="8" symbolic="YES" id="iNB-VI-QNC"/>
-                                        <constraint firstAttribute="trailing" secondItem="BXC-LR-Vof" secondAttribute="trailing" constant="20" symbolic="YES" id="ntk-o6-Irs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="BXC-LR-Vof" secondAttribute="trailing" id="ntk-o6-Irs"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -168,29 +170,19 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lCt-2g-gZU">
-                                <rect key="frame" x="18" y="180" width="339" height="31"/>
+                                <rect key="frame" x="18" y="122" width="339" height="31"/>
                                 <connections>
                                     <action selector="colorChanged:" destination="eMj-mO-SZb" eventType="valueChanged" id="9ZR-Qb-uva"/>
                                 </connections>
                             </slider>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMn-ux-fIO">
-                                <rect key="frame" x="20" y="122" width="335" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="3hJ-2k-ZGl"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uMf-fe-hlq" firstAttribute="top" secondItem="ZeF-dU-gBy" secondAttribute="top" constant="20" id="1eg-lg-UIN"/>
-                            <constraint firstItem="dMn-ux-fIO" firstAttribute="leading" secondItem="ZeF-dU-gBy" secondAttribute="leading" constant="20" id="A1c-Qm-mqT"/>
+                            <constraint firstItem="lCt-2g-gZU" firstAttribute="top" secondItem="uMf-fe-hlq" secondAttribute="bottom" constant="8" symbolic="YES" id="8Da-lS-UUM"/>
                             <constraint firstItem="ZeF-dU-gBy" firstAttribute="trailing" secondItem="lCt-2g-gZU" secondAttribute="trailing" constant="20" id="LRP-mE-aa5"/>
-                            <constraint firstItem="ZeF-dU-gBy" firstAttribute="trailing" secondItem="dMn-ux-fIO" secondAttribute="trailing" constant="20" id="cAX-XY-opW"/>
                             <constraint firstItem="ZeF-dU-gBy" firstAttribute="trailing" secondItem="uMf-fe-hlq" secondAttribute="trailing" constant="20" id="cE3-x9-hIl"/>
-                            <constraint firstItem="dMn-ux-fIO" firstAttribute="top" secondItem="uMf-fe-hlq" secondAttribute="bottom" constant="8" symbolic="YES" id="kTf-Zc-Kcx"/>
                             <constraint firstItem="uMf-fe-hlq" firstAttribute="leading" secondItem="ZeF-dU-gBy" secondAttribute="leading" constant="20" id="lg6-B3-Un1"/>
-                            <constraint firstItem="lCt-2g-gZU" firstAttribute="top" secondItem="dMn-ux-fIO" secondAttribute="bottom" constant="8" symbolic="YES" id="sVi-eu-h0Z"/>
                             <constraint firstItem="lCt-2g-gZU" firstAttribute="leading" secondItem="ZeF-dU-gBy" secondAttribute="leading" constant="20" id="z31-yc-XTf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZeF-dU-gBy"/>
@@ -206,7 +198,6 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="colorSlider" destination="lCt-2g-gZU" id="y4I-eG-3TO"/>
-                        <outlet property="colorView" destination="dMn-ux-fIO" id="neq-kd-url"/>
                         <outlet property="nameTextField" destination="uMf-fe-hlq" id="9TB-El-i9U"/>
                     </connections>
                 </viewController>

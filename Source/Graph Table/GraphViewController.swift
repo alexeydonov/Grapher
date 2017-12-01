@@ -24,11 +24,12 @@ class GraphViewController: UIViewController {
             nameTextField.delegate = self
         }
     }
-    @IBOutlet private weak var colorView: UIView!
     @IBOutlet weak var colorSlider: UISlider!
     
     @IBAction func colorChanged(_ sender: UISlider) {
-        colorView.backgroundColor = UIColor(hue: CGFloat(sender.value), saturation: 1.0, brightness: 0.5, alpha: 1)
+        let color = UIColor(hue: CGFloat(sender.value), saturation: 1.0, brightness: 0.5, alpha: 1)
+        sender.minimumTrackTintColor = color
+        sender.maximumTrackTintColor = color
     }
     
     @IBAction private func save() {
@@ -48,11 +49,20 @@ class GraphViewController: UIViewController {
         if let graph = graph {
             title = graph.name
             colorSlider.value = graph.color
-            colorView.backgroundColor = UIColor(hue: CGFloat(graph.color), saturation: 1.0, brightness: 0.5, alpha: 1.0)
+            
+            nameTextField.text = graph.name
+            
+            let color = UIColor(hue: CGFloat(graph.color), saturation: 1.0, brightness: 0.5, alpha: 1.0)
+            colorSlider.minimumTrackTintColor = color
+            colorSlider.maximumTrackTintColor = color
         }
         else {
             title = "New Graph"
-            colorView.backgroundColor = UIColor(hue: 0.5, saturation: 1, brightness: 0.5, alpha: 1.0)
+            
+            let color = UIColor(hue: 0.5, saturation: 1, brightness: 0.5, alpha: 1.0)
+            colorSlider.minimumTrackTintColor = color
+            colorSlider.maximumTrackTintColor = color
+            //colorView.backgroundColor = UIColor(hue: 0.5, saturation: 1, brightness: 0.5, alpha: 1.0)
         }
     }
     

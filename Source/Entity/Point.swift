@@ -12,3 +12,19 @@ struct Point {
     var date: Date
     var value: Double
 }
+
+extension Point: PropertyList {
+    var propertyList: [String : Any] {
+        return [
+            "date": date,
+            "value": value
+        ]
+    }
+    
+    init?(with propertyList: [String : Any]) {
+        guard let d = propertyList["date"] as? Date,
+            let v = propertyList["value"] as? Double else { return nil }
+        
+        self.init(date: d, value: v)
+    }
+}

@@ -34,12 +34,26 @@ class GraphTableViewController: UITableViewController {
         static let editGraphSegueIdentifier = "Edit Graph"
     }
     
+    private func loadGraphs() {
+        if let data = UserDefaults.standard.array(forKey: "graphs") as? [[String : Any]] {
+            graphs = data.flatMap(Graph.init(with:))
+        }
+    }
+    
+    private func saveGraphs() {
+        UserDefaults.standard.setValue(graphs.map { $0.propertyList }, forKey: "graphs")
+    }
+    
     // UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadGraphs()
         navigationItem.rightBarButtonItems?.insert(editButtonItem, at: 0)
+        
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,11 +109,12 @@ class GraphTableViewController: UITableViewController {
 extension GraphTableViewController: GraphViewControllerDelegate {
     func graphViewControllerDidRequestSave(_ controller: GraphViewController) {
         if let _ = controller.graph {
-            // Update color/name
+            // TODO: Update color/name
         }
         else {
             let newGraph = Graph(name: controller.nameTextField.text ?? "", color: controller.colorSlider.value, points: [], threshold: nil)
             graphs.append(newGraph)
+            saveGraphs()
             navigationController?.popViewController(animated: true)
         }
     }
@@ -110,6 +125,7 @@ extension GraphTableViewController: PointTableViewControllerDelegate {
         if let graph = controller.graph {
             if let index = graphs.index(where: { $0.name == graph.name }) {
                 graphs[index].points = graph.points
+                saveGraphs()
             }
         }
     }

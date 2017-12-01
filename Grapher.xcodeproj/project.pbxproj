@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8A12C0F31FD07F4300BE51DF /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0F21FD07F4300BE51DF /* Meta.swift */; };
+		8A720E201FD1135900D93316 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A720E1F1FD1135900D93316 /* PropertyList.swift */; };
 		8AD581301FD0368900BE9372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD5812F1FD0368900BE9372 /* AppDelegate.swift */; };
 		8AD581351FD0368900BE9372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581331FD0368900BE9372 /* Main.storyboard */; };
 		8AD581371FD0368900BE9372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581361FD0368900BE9372 /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		8A12C0F21FD07F4300BE51DF /* Meta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
+		8A720E1F1FD1135900D93316 /* PropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyList.swift; sourceTree = "<group>"; };
 		8AD5812C1FD0368900BE9372 /* Grapher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grapher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD5812F1FD0368900BE9372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AD581341FD0368900BE9372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				8AD5812F1FD0368900BE9372 /* AppDelegate.swift */,
 				8AD581551FD048A400BE9372 /* UIColor+Hex.swift */,
 				8A12C0F21FD07F4300BE51DF /* Meta.swift */,
+				8A720E1F1FD1135900D93316 /* PropertyList.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 			files = (
 				8AD581581FD04B4200BE9372 /* GraphViewController.swift in Sources */,
 				8AD581541FD0471700BE9372 /* ValueGraphView.swift in Sources */,
+				8A720E201FD1135900D93316 /* PropertyList.swift in Sources */,
 				8AD581561FD048A400BE9372 /* UIColor+Hex.swift in Sources */,
 				8AD5814E1FD03D4300BE9372 /* Graph.swift in Sources */,
 				8A12C0F31FD07F4300BE51DF /* Meta.swift in Sources */,
@@ -363,7 +367,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -379,7 +383,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexeydonov.Grapher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
