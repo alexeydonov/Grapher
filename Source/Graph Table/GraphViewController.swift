@@ -15,7 +15,7 @@ protocol GraphViewControllerDelegate: class {
 class GraphViewController: UIViewController {
     weak var delegate: GraphViewControllerDelegate?
     
-    var graph: Graph?
+    var graph: Chart?
     
     @IBOutlet weak var nameTextField: UITextField!
     

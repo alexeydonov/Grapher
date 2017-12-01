@@ -8,10 +8,10 @@
 
 import UIKit
 
-class GraphTableViewCell: UITableViewCell {
+class ChartTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
-    @IBOutlet weak var graphView: ValueGraphView!
+    @IBOutlet weak var chartView: ValueChartView!
     
 }

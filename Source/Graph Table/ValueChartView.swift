@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class ValueGraphView: UIView {
+class ValueChartView: UIView {
     
     var values: [Double] = [] {
         didSet {

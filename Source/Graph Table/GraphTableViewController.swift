@@ -9,13 +9,13 @@
 import UIKit
 
 class GraphTableViewController: UITableViewController {
-    var graphs: [Graph] = [
-        Graph(name: "Graph1", color: 0.5, points: [
+    var graphs: [Chart] = [
+        Chart(name: "Graph1", color: 0.5, points: [
             Point(date: Meta.instance.dateFormatter.date(from: "Nov 1, 2017")!, value: 10),
             Point(date: Meta.instance.dateFormatter.date(from: "Nov 2, 2017")!, value: 30),
             Point(date: Meta.instance.dateFormatter.date(from: "Nov 3, 2017")!, value: 80),
             Point(date: Meta.instance.dateFormatter.date(from: "Nov 4, 2017")!, value: 40)], threshold: nil, min: nil, max: nil),
-        Graph(name: "Graph2", color: 0.7, points: [
+        Chart(name: "Graph2", color: 0.7, points: [
             Point(date: Meta.instance.dateFormatter.date(from: "Oct 10, 2017")!, value: 0),
             Point(date: Meta.instance.dateFormatter.date(from: "Oct 11, 2017")!, value: 5),
             Point(date: Meta.instance.dateFormatter.date(from: "Oct 12, 2017")!, value: 40)], threshold: nil, min: nil, max: nil)
@@ -32,7 +32,7 @@ class GraphTableViewController: UITableViewController {
     
     private func loadGraphs() {
         if let data = UserDefaults.standard.array(forKey: "graphs") as? [[String : Any]] {
-            graphs = data.flatMap(Graph.init(with:))
+            graphs = data.flatMap(Chart.init(with:))
         }
     }
     
@@ -93,16 +93,16 @@ class GraphTableViewController: UITableViewController {
         let graph = graphs[indexPath.row]
         let sortedValues = graph.points.sorted { $0.date < $1.date }.map { $0.value }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: UI.graphCellIdentifier, for: indexPath) as! GraphTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: UI.graphCellIdentifier, for: indexPath) as! ChartTableViewCell
         cell.nameLabel.text = graph.name
         cell.valueLabel.text = sortedValues
             .last
             .flatMap(NSNumber.init(value:))
             .flatMap(Meta.instance.valueFormatter.string(from:))
-        cell.graphView.graphColor = UIColor(hue: CGFloat(graph.color), saturation: 1.0, brightness: 0.5, alpha: 1.0)
-        cell.graphView.min = graph.min
-        cell.graphView.max = graph.max
-        cell.graphView.values = sortedValues
+        cell.chartView.graphColor = UIColor(hue: CGFloat(graph.color), saturation: 1.0, brightness: 0.5, alpha: 1.0)
+        cell.chartView.min = graph.min
+        cell.chartView.max = graph.max
+        cell.chartView.values = sortedValues
         
         return cell
     }
@@ -147,7 +147,7 @@ extension GraphTableViewController: GraphViewControllerDelegate {
                 max = Meta.instance.valueFormatter.number(from: text)?.doubleValue
             }
             
-            let newGraph = Graph(name: controller.nameTextField.text ?? "",
+            let newGraph = Chart(name: controller.nameTextField.text ?? "",
                                  color: controller.colorSlider.value,
                                  points: [],
                                  threshold: threshold,

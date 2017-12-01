@@ -15,7 +15,7 @@ protocol PointTableViewControllerDelegate: class {
 class PointTableViewController: UITableViewController {
     weak var delegate: PointTableViewControllerDelegate?
     
-    var graph: Graph? {
+    var graph: Chart? {
         didSet {
             title = graph?.name
             points = graph?.points.sorted { $0.date < $1.date } ?? []
@@ -101,7 +101,7 @@ class PointTableViewController: UITableViewController {
 }
 
 extension PointTableViewController: PointViewControllerDelegate {
-    func pointViewControllerDidRequestSave(_ controller: PointViewController) {
+    func pointViewController(_ controller: PointViewController, didUpdatePoint point: Point) {
         if let _ = controller.point {
             // TODO: Modify point
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Graph {
+struct Chart {
     var name: String
     var color: Float
     var points: [Point]
@@ -17,7 +17,7 @@ struct Graph {
     var max: Double?
 }
 
-extension Graph: PropertyList {
+extension Chart: PropertyList {
     var propertyList: [String : Any] {
         var result: [String : Any] = [
             "name": name,

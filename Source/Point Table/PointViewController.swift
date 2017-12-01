@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PointViewControllerDelegate: class {
-    func pointViewControllerDidRequestSave(_ controller: PointViewController)
+    func pointViewController(_ controller: PointViewController, didUpdatePoint point: Point)
 }
 
 class PointViewController: UIViewController {
@@ -27,12 +27,12 @@ class PointViewController: UIViewController {
     }
     
     @IBAction private func save() {
-        guard let text = valueTextField.text, Meta.instance.valueFormatter.number(from: text) != nil else {
+        guard let text = valueTextField.text, let value = Meta.instance.valueFormatter.number(from: text) else {
             valueTextField.becomeFirstResponder()
             return
         }
         
-        delegate?.pointViewControllerDidRequestSave(self)
+        delegate?.pointViewController(self, didUpdatePoint: Point(date: datePicker.date, value: value.doubleValue))
     }
     
     // MARK: UIViewController
