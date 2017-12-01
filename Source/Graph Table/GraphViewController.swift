@@ -72,6 +72,8 @@ class GraphViewController: UIViewController {
         
         if let graph = graph {
             title = graph.name
+            navigationItem.leftBarButtonItem = nil
+            
             colorSlider.value = graph.color
             
             nameTextField.text = graph.name

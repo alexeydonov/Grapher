@@ -40,6 +40,10 @@ class GraphTableViewController: UITableViewController {
         UserDefaults.standard.setValue(graphs.map { $0.propertyList }, forKey: "graphs")
     }
     
+    @IBAction private func unwind(segue: UIStoryboardSegue) {
+        
+    }
+    
     // UIViewController
     
     override func viewDidLoad() {
@@ -57,19 +61,19 @@ class GraphTableViewController: UITableViewController {
         
         switch segueIdentifier {
         case UI.detailsSegueIdentifier:
-            guard let ptvc = segue.destination as? PointTableViewController else { return }
+            guard let ptvc = segue.destination.contentViewController as? PointTableViewController else { return }
             ptvc.delegate = self
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 ptvc.graph = graphs[indexPath.row]
             }
             
         case UI.addGraphSegueIdentifier:
-            guard let gvc = segue.destination as? GraphViewController else { return }
+            guard let gvc = segue.destination.contentViewController as? GraphViewController else { return }
             gvc.delegate = self
             gvc.graph = nil
             
         case UI.editGraphSegueIdentifier:
-            guard let gvc = segue.destination as? GraphViewController else { return }
+            guard let gvc = segue.destination.contentViewController as? GraphViewController else { return }
             gvc.delegate = self
             if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) {
                 gvc.graph = graphs[indexPath.row]

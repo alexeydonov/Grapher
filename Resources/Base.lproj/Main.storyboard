@@ -89,7 +89,7 @@
                     <navigationItem key="navigationItem" title="Graphs" id="IVU-73-LGV">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="QCR-mh-nQy">
                             <connections>
-                                <segue destination="eMj-mO-SZb" kind="show" identifier="Add Graph" id="E5j-Vu-e6Q"/>
+                                <segue destination="syc-16-5Uq" kind="presentation" identifier="Add Graph" id="u0Q-zG-BZ3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -222,6 +222,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="EFy-DX-6cD">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9Dc-vX-MB7">
+                            <connections>
+                                <segue destination="KwX-PK-le1" kind="unwind" unwindAction="unwindWithSegue:" id="Okc-wn-vmC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="0Ve-er-mdV">
                             <connections>
                                 <action selector="save" destination="eMj-mO-SZb" id="c78-Gu-JrM"/>
@@ -238,8 +243,25 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNa-mD-HZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KwX-PK-le1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1616.8" y="895.50224887556226"/>
+            <point key="canvasLocation" x="1617" y="896"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nhn-EA-XpY">
+            <objects>
+                <navigationController id="syc-16-5Uq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k2g-iF-5rc">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eMj-mO-SZb" kind="relationship" relationship="rootViewController" id="BRS-mA-gbE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F5D-Cz-pUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="665" y="896"/>
         </scene>
         <!--Title-->
         <scene sceneID="smx-44-BO3">
@@ -308,6 +330,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Kwq-Zt-IEx"/>
-        <segue reference="FwM-21-MyL"/>
+        <segue reference="BRS-mA-gbE"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -47,12 +47,12 @@ class PointTableViewController: UITableViewController {
         switch segueIdentifier {
         case UI.showPointSegueIdentifier:
             guard let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell) else { return }
-            guard let pvc = segue.destination as? PointViewController else { return }
+            guard let pvc = segue.destination.contentViewController as? PointViewController else { return }
             pvc.delegate = self
             pvc.point = points[indexPath.row]
             
         case UI.addPointSegueIdentifier:
-            guard let pvc = segue.destination as? PointViewController else { return }
+            guard let pvc = segue.destination.contentViewController as? PointViewController else { return }
             pvc.delegate = self
             
         default: break

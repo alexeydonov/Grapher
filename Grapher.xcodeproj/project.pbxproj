@@ -10,6 +10,7 @@
 		8A0855BC1FD136730074C27A /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8A0855BB1FD136730074C27A /* Settings.bundle */; };
 		8A12C0F31FD07F4300BE51DF /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0F21FD07F4300BE51DF /* Meta.swift */; };
 		8A720E201FD1135900D93316 /* PropertyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A720E1F1FD1135900D93316 /* PropertyList.swift */; };
+		8AC962C81FD14B9300AD867C /* UIViewController+Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC962C71FD14B9300AD867C /* UIViewController+Content.swift */; };
 		8AD581301FD0368900BE9372 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD5812F1FD0368900BE9372 /* AppDelegate.swift */; };
 		8AD581351FD0368900BE9372 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581331FD0368900BE9372 /* Main.storyboard */; };
 		8AD581371FD0368900BE9372 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AD581361FD0368900BE9372 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		8A0855BB1FD136730074C27A /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8A12C0F21FD07F4300BE51DF /* Meta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
 		8A720E1F1FD1135900D93316 /* PropertyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyList.swift; sourceTree = "<group>"; };
+		8AC962C71FD14B9300AD867C /* UIViewController+Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Content.swift"; sourceTree = "<group>"; };
 		8AD5812C1FD0368900BE9372 /* Grapher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grapher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AD5812F1FD0368900BE9372 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8AD581341FD0368900BE9372 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				8AD5812F1FD0368900BE9372 /* AppDelegate.swift */,
 				8A12C0F21FD07F4300BE51DF /* Meta.swift */,
 				8A720E1F1FD1135900D93316 /* PropertyList.swift */,
+				8AC962C71FD14B9300AD867C /* UIViewController+Content.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				8AD581461FD037E500BE9372 /* GraphTableViewCell.swift in Sources */,
 				8AD5815A1FD051C300BE9372 /* PointViewController.swift in Sources */,
 				8AD581421FD0372B00BE9372 /* GraphTableViewController.swift in Sources */,
+				8AC962C81FD14B9300AD867C /* UIViewController+Content.swift in Sources */,
 				8AD581501FD03D5B00BE9372 /* Point.swift in Sources */,
 				8AD581301FD0368900BE9372 /* AppDelegate.swift in Sources */,
 				8AD581481FD0395C00BE9372 /* PointTableViewController.swift in Sources */,
