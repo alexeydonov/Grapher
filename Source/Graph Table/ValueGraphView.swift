@@ -17,26 +17,49 @@ class ValueGraphView: UIView {
         }
     }
     
-    @IBInspectable
-    var graphColor: UIColor = .black
+    var min: Double? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    var max: Double? {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
     @IBInspectable
-    var showTicks: Bool = true
+    var graphColor: UIColor = .black {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     
-    private struct UI {
-        static let tickRadius = CGFloat(2.0)
+    @IBInspectable
+    var showTicks: Bool = true {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable
+    var tickRadius: CGFloat = 2.0 {
+        didSet {
+            setNeedsDisplay()
+        }
     }
 
     // MARK: UIView
     
     override func draw(_ rect: CGRect) {
-        let boundsWidth = bounds.width - UI.tickRadius * 4
-        let boundsHeight = bounds.height - CGFloat(UI.tickRadius * 4)
-        let leftIndent = UI.tickRadius * 2
-        let topIndent = UI.tickRadius * 2
+        let boundsWidth = bounds.width - tickRadius * 4
+        let boundsHeight = bounds.height - tickRadius * 4
+        let leftIndent = tickRadius * 2
+        let topIndent = tickRadius * 2
         
-        let min = values.min() ?? 0
-        let max = values.max() ?? 100
+        let min = self.min ?? values.min() ?? 0
+        let max = self.max ?? values.max() ?? 100
         let step = boundsWidth / CGFloat(values.count - 1)
         
         let path = UIBezierPath()
@@ -51,7 +74,7 @@ class ValueGraphView: UIView {
             else {
                 path.addLine(to: point)
             }
-            ticks.append(UIBezierPath(arcCenter: point, radius: UI.tickRadius, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true))
+            ticks.append(UIBezierPath(arcCenter: point, radius: tickRadius, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true))
         }
         
         graphColor.setStroke()
@@ -63,7 +86,7 @@ class ValueGraphView: UIView {
         }
         
         UIColor.lightGray.setStroke()
-        let roundRect = UIBezierPath(roundedRect: bounds, cornerRadius: UI.tickRadius * 2)
+        let roundRect = UIBezierPath(roundedRect: bounds, cornerRadius: tickRadius * 2)
         roundRect.flatness = 0.1
         roundRect.stroke()
     }

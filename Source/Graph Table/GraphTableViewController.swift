@@ -14,11 +14,11 @@ class GraphTableViewController: UITableViewController {
             Point(date: Meta.instance.dateFormatter.date(from: "Nov 1, 2017")!, value: 10),
             Point(date: Meta.instance.dateFormatter.date(from: "Nov 2, 2017")!, value: 30),
             Point(date: Meta.instance.dateFormatter.date(from: "Nov 3, 2017")!, value: 80),
-            Point(date: Meta.instance.dateFormatter.date(from: "Nov 4, 2017")!, value: 40)], threshold: nil),
+            Point(date: Meta.instance.dateFormatter.date(from: "Nov 4, 2017")!, value: 40)], threshold: nil, min: nil, max: nil),
         Graph(name: "Graph2", color: 0.7, points: [
             Point(date: Meta.instance.dateFormatter.date(from: "Oct 10, 2017")!, value: 0),
             Point(date: Meta.instance.dateFormatter.date(from: "Oct 11, 2017")!, value: 5),
-            Point(date: Meta.instance.dateFormatter.date(from: "Oct 12, 2017")!, value: 40)], threshold: nil)
+            Point(date: Meta.instance.dateFormatter.date(from: "Oct 12, 2017")!, value: 40)], threshold: nil, min: nil, max: nil)
         ]
     
     // MARK: Implementation
@@ -96,6 +96,8 @@ class GraphTableViewController: UITableViewController {
             .flatMap(NSNumber.init(value:))
             .flatMap(Meta.instance.valueFormatter.string(from:))
         cell.graphView.graphColor = UIColor(hue: CGFloat(graph.color), saturation: 1.0, brightness: 0.5, alpha: 1.0)
+        cell.graphView.min = graph.min
+        cell.graphView.max = graph.max
         cell.graphView.values = sortedValues
         
         return cell
@@ -128,7 +130,7 @@ extension GraphTableViewController: GraphViewControllerDelegate {
             // TODO: Modify graph
         }
         else {
-            let newGraph = Graph(name: controller.nameTextField.text ?? "", color: controller.colorSlider.value, points: [], threshold: nil)
+            let newGraph = Graph(name: controller.nameTextField.text ?? "", color: controller.colorSlider.value, points: [], threshold: nil, min: nil, max: nil)
             graphs.append(newGraph)
             saveGraphs()
             tableView.reloadData()

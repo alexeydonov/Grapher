@@ -13,6 +13,8 @@ struct Graph {
     var color: Float
     var points: [Point]
     var threshold: Int?
+    var min: Double?
+    var max: Double?
 }
 
 extension Graph: PropertyList {
@@ -25,6 +27,12 @@ extension Graph: PropertyList {
         if let t = threshold {
             result["threshold"] = t
         }
+        if let min = min {
+            result["min"] = min
+        }
+        if let max = max {
+            result["max"] = max
+        }
         
         return result
     }
@@ -35,7 +43,9 @@ extension Graph: PropertyList {
             let p = propertyList["points"] as? [[String : Any]] else { return nil }
         let t = propertyList["threshold"] as? Int
         let ps = p.flatMap(Point.init(with:))
+        let min = propertyList["min"] as? Double
+        let max = propertyList["max"] as? Double
         
-        self.init(name: n, color: c, points: ps, threshold: t)
+        self.init(name: n, color: c, points: ps, threshold: t, min: min, max: max)
     }
 }
