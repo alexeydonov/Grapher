@@ -17,12 +17,15 @@ class GraphViewController: UIViewController {
     
     var graph: Graph?
     
-    @IBOutlet weak var nameTextField: UITextField! {
-        didSet {
-            nameTextField.delegate = self
-        }
-    }
+    @IBOutlet weak var nameTextField: UITextField!
+    
     @IBOutlet weak var colorSlider: UISlider!
+    
+    @IBOutlet weak var minTextField: UITextField!
+    
+    @IBOutlet weak var maxTextField: UITextField!
+    
+    @IBOutlet weak var thresholdTextField: UITextField!
     
     // MARK: Implementation
     
@@ -36,6 +39,27 @@ class GraphViewController: UIViewController {
         guard let text = nameTextField.text, !text.isEmpty else {
             nameTextField.becomeFirstResponder()
             return
+        }
+        
+        if let text = minTextField.text, !text.isEmpty {
+            if Meta.instance.valueFormatter.number(from: text) == nil {
+                minTextField.becomeFirstResponder()
+                return
+            }
+        }
+        
+        if let text = maxTextField.text, !text.isEmpty {
+            if Meta.instance.valueFormatter.number(from: text) == nil {
+                maxTextField.becomeFirstResponder()
+                return
+            }
+        }
+        
+        if let text = thresholdTextField.text, !text.isEmpty {
+            if Meta.instance.valueFormatter.number(from: text) == nil {
+                thresholdTextField.becomeFirstResponder()
+                return
+            }
         }
         
         delegate?.graphViewControllerDidRequestSave(self)
@@ -55,6 +79,13 @@ class GraphViewController: UIViewController {
             let color = UIColor(hue: CGFloat(graph.color), saturation: 1.0, brightness: 0.5, alpha: 1.0)
             colorSlider.minimumTrackTintColor = color
             colorSlider.maximumTrackTintColor = color
+            
+            if let min = graph.min {
+                minTextField.text = Meta.instance.valueFormatter.string(from: NSNumber(value: min))
+            }
+            if let max = graph.max {
+                maxTextField.text = Meta.instance.valueFormatter.string(from: NSNumber(value: max))
+            }
         }
         else {
             title = "New Graph"
@@ -74,9 +105,27 @@ class GraphViewController: UIViewController {
 
 extension GraphViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        save()
+        if textField === nameTextField {
+            minTextField.becomeFirstResponder()
+            return false
+        }
         
-        return false
+        if textField === minTextField {
+            maxTextField.becomeFirstResponder()
+            return false
+        }
+        
+        if textField === maxTextField {
+            thresholdTextField.becomeFirstResponder()
+            return false
+        }
+        
+        if textField === thresholdTextField {
+            save()
+            return false
+        }
+        
+        return true
     }
 }
 

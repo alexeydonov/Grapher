@@ -130,7 +130,25 @@ extension GraphTableViewController: GraphViewControllerDelegate {
             // TODO: Modify graph
         }
         else {
-            let newGraph = Graph(name: controller.nameTextField.text ?? "", color: controller.colorSlider.value, points: [], threshold: nil, min: nil, max: nil)
+            var threshold: Int? = nil
+            if let text = controller.thresholdTextField.text {
+                threshold = Meta.instance.valueFormatter.number(from: text)?.intValue
+            }
+            var min: Double? = nil
+            if let text = controller.minTextField.text {
+                min = Meta.instance.valueFormatter.number(from: text)?.doubleValue
+            }
+            var max: Double? = nil
+            if let text = controller.maxTextField.text {
+                max = Meta.instance.valueFormatter.number(from: text)?.doubleValue
+            }
+            
+            let newGraph = Graph(name: controller.nameTextField.text ?? "",
+                                 color: controller.colorSlider.value,
+                                 points: [],
+                                 threshold: threshold,
+                                 min: min,
+                                 max: max)
             graphs.append(newGraph)
             saveGraphs()
             tableView.reloadData()

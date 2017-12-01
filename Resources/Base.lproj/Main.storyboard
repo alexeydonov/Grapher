@@ -10,6 +10,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -163,27 +164,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Graph Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uMf-fe-hlq">
-                                <rect key="frame" x="20" y="84" width="335" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lCt-2g-gZU">
-                                <rect key="frame" x="18" y="122" width="339" height="31"/>
-                                <connections>
-                                    <action selector="colorChanged:" destination="eMj-mO-SZb" eventType="valueChanged" id="9ZR-Qb-uva"/>
-                                </connections>
-                            </slider>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LOe-G6-odk">
+                                <rect key="frame" x="20" y="84" width="335" height="182"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Graph Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uMf-fe-hlq">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="eMj-mO-SZb" id="BgB-Jf-dP8"/>
+                                        </connections>
+                                    </textField>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lCt-2g-gZU">
+                                        <rect key="frame" x="-2" y="38" width="339" height="31"/>
+                                        <connections>
+                                            <action selector="colorChanged:" destination="eMj-mO-SZb" eventType="valueChanged" id="9ZR-Qb-uva"/>
+                                        </connections>
+                                    </slider>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Minimal value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="drk-39-snA">
+                                        <rect key="frame" x="0.0" y="76" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="eMj-mO-SZb" id="gSe-2A-zUD"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Maximal value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LE1-iH-MLd">
+                                        <rect key="frame" x="0.0" y="114" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="eMj-mO-SZb" id="bul-gw-Vv3"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Limit chart to last entries" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ti3-UF-bET">
+                                        <rect key="frame" x="0.0" y="152" width="335" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="eMj-mO-SZb" id="t1H-RX-RSR"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uMf-fe-hlq" firstAttribute="top" secondItem="ZeF-dU-gBy" secondAttribute="top" constant="20" id="1eg-lg-UIN"/>
-                            <constraint firstItem="lCt-2g-gZU" firstAttribute="top" secondItem="uMf-fe-hlq" secondAttribute="bottom" constant="8" symbolic="YES" id="8Da-lS-UUM"/>
-                            <constraint firstItem="ZeF-dU-gBy" firstAttribute="trailing" secondItem="lCt-2g-gZU" secondAttribute="trailing" constant="20" id="LRP-mE-aa5"/>
-                            <constraint firstItem="ZeF-dU-gBy" firstAttribute="trailing" secondItem="uMf-fe-hlq" secondAttribute="trailing" constant="20" id="cE3-x9-hIl"/>
-                            <constraint firstItem="uMf-fe-hlq" firstAttribute="leading" secondItem="ZeF-dU-gBy" secondAttribute="leading" constant="20" id="lg6-B3-Un1"/>
-                            <constraint firstItem="lCt-2g-gZU" firstAttribute="leading" secondItem="ZeF-dU-gBy" secondAttribute="leading" constant="20" id="z31-yc-XTf"/>
+                            <constraint firstItem="LOe-G6-odk" firstAttribute="leading" secondItem="ZeF-dU-gBy" secondAttribute="leading" constant="20" id="gtm-qO-zwJ"/>
+                            <constraint firstItem="ZeF-dU-gBy" firstAttribute="trailing" secondItem="LOe-G6-odk" secondAttribute="trailing" constant="20" id="shM-9d-r1O"/>
+                            <constraint firstItem="LOe-G6-odk" firstAttribute="top" secondItem="ZeF-dU-gBy" secondAttribute="top" constant="20" id="yjL-7y-oqr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZeF-dU-gBy"/>
                     </view>
@@ -198,7 +231,10 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="colorSlider" destination="lCt-2g-gZU" id="y4I-eG-3TO"/>
+                        <outlet property="maxTextField" destination="LE1-iH-MLd" id="EKS-yA-t3U"/>
+                        <outlet property="minTextField" destination="drk-39-snA" id="qeE-yq-AiU"/>
                         <outlet property="nameTextField" destination="uMf-fe-hlq" id="9TB-El-i9U"/>
+                        <outlet property="thresholdTextField" destination="Ti3-UF-bET" id="01x-0B-3Eh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNa-mD-HZB" userLabel="First Responder" sceneMemberID="firstResponder"/>
